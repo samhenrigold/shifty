@@ -8,8 +8,11 @@
         bottomRow.scrollLeft = 77;
 	});
     const scrollHandler = (e) => {
-        // console.log(e.target);
+        console.log(e.target.scrollLeft);
         if (e.target.scrollLeft % 77 == (1 || 0)) {
+            if ('vibration' in navigator) {
+                window.navigator.vibrate(15);
+            }
             console.log("tick")
         }
     };
