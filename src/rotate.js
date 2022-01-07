@@ -11,7 +11,7 @@ export const rotateStr = (str, shift) => {
     return result;
 }
 
-const rotateChar = (charCode, shift) => {
+export const rotateChar = (charCode, shift) => {
     if (charCode > 96 && charCode < 123) {  // check if charCode is lowercase letter; automatically ignores non-letters
         charCode += shift % 26
         if (charCode > 122) {               // if shift passes 'z', reset to 'a'
