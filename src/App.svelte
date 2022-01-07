@@ -7,13 +7,13 @@
 	$: encoded = rotateStr(decoded, rotationFactor);
 </script>
 <main>
-	<input type="range" min="0" max="26" step="1" id="rot" bind:value={rotationFactor} style="position: absolute; top: 0; left: 10px;">
+	<!-- <input type="range" min="0" max="26" step="1" id="rot" bind:value={rotationFactor} style="position: absolute; top: 0; left: 10px;"> -->
 	<label for="rot" style="position: absolute; top: 0; left: 0; font-size: small;">{rotationFactor}</label>
 	<section>
 		<textarea name="output" id="output" value={encoded} readonly placeholder={rotateStr(placeholder, rotationFactor)}/>
 	</section>
 	<section>
-		<Slider />
+		<Slider bind:rotationFactor/>
 	</section>
 	<section>
 		<textarea name="input" id="input" bind:value={decoded} placeholder={placeholder}/>
