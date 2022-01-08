@@ -61,7 +61,7 @@
 		display: block;
 		resize: none;
 		padding: 1em;
-		background: url("./letterpress-texture.png"), var(--white);
+		background: url("../letterpress-texture.png"), var(--white);
 		background-size: 64px;
 		color: var(--black);
 		caret-color: var(--red);

@@ -97,7 +97,7 @@
     #bottom .inner {
         padding: 1rem 0;
         width: max-content;
-        background-image: url("./Union.svg");
+        background-image: url("../Union.svg");
         background-repeat: repeat-x;
         background-size: 19%;
         background-position-y: center;
