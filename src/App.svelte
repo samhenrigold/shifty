@@ -2,7 +2,7 @@
 	import { rotateStr } from "./rotate.js";
 	import Slider from "./Slider.svelte";
 	let decoded = "";
-	let placeholder = "Enter text";
+	let placeholder = "Click to enter top-secret intel...";
 	let rotationFactor = 13;
 	$: encoded = rotateStr(decoded, rotationFactor);
 </script>
@@ -56,6 +56,7 @@
 
 	textarea {
 		position: relative;
+		letter-spacing: 0.1em;
 		width: clamp(100px, 90vw, 1200px);
 		height: clamp(32px, 33vh, 30vh);
 		display: block;
