@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher, onMount } from 'svelte';
+    import { createEventDispatcher, onMount } from "svelte";
     import { debounce } from "lodash";
     export let rotationFactor = 13;
     const dispatch = createEventDispatcher();
@@ -33,70 +33,86 @@
         "Z",
     ];
     onMount(async () => {
-		bottomRow.scrollLeft = 72*13;
-	});
+        bottomRow.scrollLeft = 72 * 13;
+    });
     const handleScroll = (e) => {
-        rotationFactor = Math.round(e.target.scrollLeft / 72 % 26)
-       if (e.target.scrollLeft % 72 < 2){
-          console.log('tick')
-          dispatch(rotationFactor)
-          if (e.target.scrollLeft > (e.target.scrollWidth / 3)) {
-              setTimeout(() => {
-                e.target.scrollLeft = rotationFactor * 72;
-              }, 50);
-          }
-       }
-    }
+            rotationFactor = Math.floor((e.target.scrollLeft / 72) % 26);
+            if (e.target.scrollLeft % 72 < 2) dispatch(rotationFactor);
+    };
 </script>
 
 <section>
     <div id="top">
-        {#each Array(alphabet.length) as _, i}
-            <span>{alphabet[i]}</span>
-        {/each}
+        <div class="inner">
+            {#each Array(alphabet.length) as _, i}
+                <span>{alphabet[i]}</span>
+            {/each}
+        </div>
     </div>
-    <div id="bottom" bind:this={bottomRow} on:scroll={(e) => handleScroll(e)}>
-        {#each Array(alphabet.length * 3) as _, i}
-            <span>{alphabet[i % 26]}</span>
-        {/each}
+    <div
+        id="bottom"
+        bind:this={bottomRow}
+        on:scroll={(e) => handleScroll(e)}
+        tabindex="0"
+    >
+        <div class="inner">
+            {#each Array(alphabet.length * 3) as _, i}
+                <span>{alphabet[i % 26]}</span>
+            {/each}
+        </div>
     </div>
 </section>
 
 <style>
-    :root {
-        --font-size: 80px;
-    }
     @font-face {
         font-family: "PosterCut";
         src: url("../PosterCutRegular.woff2") format("woff2");
     }
-
     section {
-        overflow: none;
+        overflow: hidden;
+        width: 100vw;
+
+        font-family: "PosterCut", monospace;
+        color: #f4f4f4;
+        font-size: 3em;
     }
 
     div {
-        width: 100vw;
         white-space: nowrap;
     }
 
-    span {
-        font-family: "PosterCut", monospace;
-        display: inline-block;
-        width: 72px;
-        height: 72px;
-        font-size: var(--font-size);
-        line-height: -50px;
-        scroll-snap-align: start;
-        color: #f4f4f4;
-        text-align: center;
-    }
-
     #bottom {
-        padding-top: 12px;
-        background-color: #d14735;
+        margin-top: 0.5rem;
         overflow-x: scroll;
         overflow-y: hidden;
         scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        overscroll-behavior: none;
+    }
+
+    #bottom::-webkit-scrollbar {
+        display: none;
+    }
+
+    #bottom .inner {
+        padding: 1rem 0;
+        width: max-content;
+        background-image: url("./Union.svg");
+        background-repeat: repeat-x;
+        background-size: 19%;
+        background-position-y: center;
+    }
+
+    .inner span {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        transform: translateY(0.1em);
+        scroll-snap-align: start;
+    }
+
+    #bottom .inner span {
+        transform: translateY(0.1em);
     }
 </style>
