@@ -2,7 +2,7 @@
 	import { rotateStr } from "./rotate.js";
 	import Slider from "./Slider.svelte";
 	let decoded = "";
-	let placeholder = "Click to enter top-secret intel...";
+	let placeholder = "Enter top-secret intel...";
 	let rotationFactor = 13;
 	$: encoded = rotateStr(decoded, rotationFactor);
 </script>

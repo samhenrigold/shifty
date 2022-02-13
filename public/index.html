@@ -1,12 +1,62 @@
+---
+title: Caesar Shifter
+subtitle: An experimental Caesar Shift web utility inspired by Saul Bass.
+date: 2022-02-12
+layout: ""
+---
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en-US">
+
 <head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
+  {# 1: Basic Functionality, Privacy & Security #}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  {# 2: Styles & Canonical #}
+  <meta name="theme-color" content="hsl(223 100% 43%)" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="hsl(211 100% 63%)" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ siteData.favicon }}">
+  <link rel="icon" type="image/png" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="canonical" href="{{ page.url | absoluteUrl }}">
 
-	<title>Svelte app</title>
+  <title>{{ title }} &middot; Sam Henri-Gold</title>
+  <meta name="description" content="{{ subtitle }}">
+  {# OG #}
+  <meta property="og:title" content="{{ title }} &middot; Sam Henri-Gold">
+  <meta property="og:description" content="{{ subtitle }}">
+  <meta property="og:type" content="article">
+  {# Twitter #}
+  <meta name="twitter:title" content="{{ title }} &middot; Sam Henri-Gold">
+  <meta name="twitter:description" content="{{ subtitle }}">
+  <meta name="twitter:card" content="summary_large_image">
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
+  {# 4: OpenGraph #}
+  <meta property="og:site_name" content="Sam Henri-Gold">
+  <meta property="og:url" content="{{ page.url | absoluteUrl }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="{{ date.toISOString() }}">
+  {# 5: Twitter #}
+  <meta name="twitter:creator" content="@samhenrigold" />
+  <meta name="twitter:site" content="@samhenrigold" />
+  <meta name="twitter:dnt" content="on">
+  {# 6: Robots & Generic #}
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="max-image-preview:standard">
+  <meta name="robots" content="index,follow">
+  <meta name="google" content="nositelinkssearchbox">
+  <meta name="googlebot" content="index,follow">
+  {# 7: Lowest Priority #}
+  <link rel="me" href="mailto:widget-spent.0r@icloud.com">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="shortcut icon" href="./favicon.ico" />
+	<link rel="icon" sizes="16x16 32x32" href="./favicon.ico">
+	<link rel='mask-icon' href='./favicon-simple.svg' color='#212121'>
+	<link rel="apple-touch-icon-precomposed" href="./favicon-180.png">
+
 	<link rel='stylesheet' href='/global.css'>
 	<link rel='stylesheet' href='/build/bundle.css'>
 
